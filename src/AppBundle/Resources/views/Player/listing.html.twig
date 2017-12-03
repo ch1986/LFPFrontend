@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div id="main" class="col-xs-12 col-sm-9 pull-right">
+            <h1>{{ club.name }}</h1>
+            <h2>Plantilla</h2>
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Apodo</th>
+                    <th>Dorsal</th>
+                    <th>Posición</th>
+                </tr>
+                {% for player in players %}
+                    <tr>
+                        <td class="middle">{% if player.image is defined %}<img src="{{ player.image }}" class="img-responsive img-circle face center-block">{% endif %}</td>
+                        <td class="middle">{{ player.name }}</td>
+                        <td class="middle">{{ player.nickname }}</td>
+                        <td class="middle">{{ player.dorsal }}</td>
+                        <td class="middle">{{ player.position }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <a href="{{path('AppBundle_club_listing')}}" class="btn btn-primary center-block">Volver</a>
+            <h3>Añade un jugador</h3>
+            {{ render(controller('AppBundle:Player:new', { 'clubId': club.id })) }}
+        </div>
+        <div id="menu" class="col-xs-12 col-sm-3 pull-left">
+            <ul class="nav nav-list fjalla">
+                <li><a href="{{path('AppBundle_club_listing')}}">CLUBES</a></li>
+            </ul>    
+        </div>
+    </div>
+{% endblock %}

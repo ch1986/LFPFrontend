@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/app/AppKernel.php</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/src/AppBundle/Entity/Player.php</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/src/AppBundle/Resources/views/Player/new.html.twig</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/web/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/src/AppBundle/Form/PlayerType.php</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/src/AppBundle/Controller/PlayerController.php</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/src/AppBundle/Resources/views/Player/listing.html.twig</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/src/AppBundle/Controller/ClubController.php</file>
+            <file>file:/C:/xampp/htdocs/LFPFrontend/src/AppBundle/Resources/views/Club/listing.html.twig</file>
+        </group>
+    </open-files>
+</project-private>

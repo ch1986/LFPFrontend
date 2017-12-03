@@ -1,0 +1,108 @@
+/* 
+    Created on : 21-mar-2017, 8:56:48
+    Author     : Isabel
+*/
+
+@font-face{
+    font-family: "lucida";
+    src: url("../fonts/LucidaGrande.ttf");
+    font-weight: normal;
+}
+
+@font-face{
+    font-family: "fjalla";
+    src: url("../fonts/FjallaOne-Regular.ttf");
+    font-weight: normal;
+}
+
+div{
+    line-height: 1.5em;
+}
+
+/*COLORES Y FUENTES*/
+.borde{
+    border-style: solid;
+    border-width: thin;
+    border-color: #CCCCCC;
+}
+
+.fjalla{
+    font-weight: normal;
+    color: black;
+    font-family: fjalla;
+    text-align: justify;
+
+}
+/*FIN DE COLORES Y FUENTES*/
+#menu{
+    padding-left: 0;
+}
+
+
+#menu ul{
+    list-style: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#menu ul li{
+    font-size: 17px;
+    margin-bottom: 5px;
+    border-bottom: #CCCCCC solid thin;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 13px 5px;
+    color: black;
+}
+
+#menu ul li:first-child{
+    border-top: #CCCCCC solid thin;
+}
+
+#menu ul li a{
+    border-left: #f36f21 solid 7px;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    color:black;
+}
+
+#menu ul li a:hover{
+    text-decoration: none;
+    color:black;
+}
+
+#menu img{
+    width:100%;
+}
+
+#logo > a > img{
+    width: 100%;
+}
+
+#logo{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.shield{
+    max-height: 30px;
+}
+
+.face{
+    max-height: 100px;
+}
+
+.middle{
+    vertical-align: middle !important;
+}
+
+footer{
+    background-color: black;
+    color:white;
+    font-family: lucida;
+    font-size: 14px;
+    text-align: center;
+    padding: 35px 0px;
+    margin-top: 20px;
+}

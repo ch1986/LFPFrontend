@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div id="main" class="col-xs-12 col-sm-9 pull-right">
+            <h1>Clubes</h1>
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Año de fundación</th>
+                    <th>Estadio</th>
+                </tr>
+                {% for club in clubs %}
+                    <tr>
+                        <td class="middle"><img src="{{ club.image }}" class="img-responsive shield center-block"></td>
+                        <td class="middle"><a href="{{path('AppBundle_player_listing', {'clubId': club.id})}}">{{ club.name }}</a></td>
+                        <td class="middle">{{ club.foundation_year }}</td>
+                        <td class="middle">{{ club.stadium }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            
+        </div>
+        <div id="menu" class="col-xs-12 col-sm-3 pull-left">
+            <ul class="nav nav-list fjalla">
+                <li><a href="{{path('AppBundle_club_listing')}}">CLUBES</a></li>
+            </ul>    
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <header class="container-fluid">
+            <div id="logo" class="col-xs-12">
+                <a href="{{path('AppBundle_club_listing')}}">
+                    <img class="img-responsive" src="{{ asset('images/header.png') }}" alt="La Liga"/>
+                </a>
+            </div>
+        </header>
+        {% block content %}
+            
+        {% endblock %}
+        <footer class="container-fluid">
+            <img class="img-responsive center-block" src="{{ asset('images/logo.png') }}" alt="La Liga"/>
+        </footer>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,532 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Club
+ *
+ * @ORM\Table(name="club")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ClubRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Club
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     */
+    private $name;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="foundation_year", type="integer")
+     */
+    private $foundationYear;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="president", type="string", length=255)
+     */
+    private $president;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="manager", type="string", length=255)
+     */
+    private $manager;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="press_officer", type="string", length=255)
+     */
+    private $pressOfficer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     */
+    private $email;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="first_seasons", type="integer")
+     */
+    private $firstSeasons;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="second_seasons", type="integer")
+     */
+    private $secondSeasons;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="subscribers", type="integer")
+     */
+    private $subscribers;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="brand", type="string", length=255)
+     */
+    private $brand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="stadium", type="string", length=255)
+     */
+    private $stadium;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="stadium_width", type="integer")
+     */
+    private $stadiumWidth;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="stadium_length", type="integer")
+     */
+    private $stadiumLength;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="capacity", type="integer")
+     */
+    private $capacity;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    protected $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    protected $updatedAt;
+    
+    /**
+     * 
+     * @ORM\OneToMany(targetEntity="Player", mappedBy="club")
+     */
+    protected $players;
+    
+    /**
+     * Método constructor
+     */
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime('now', new \DateTimeZone('Europe/Madrid')));
+        $this->setUpdatedAt(new \DateTime('now', new \DateTimeZone('Europe/Madrid')));
+        $this->players = new ArrayCollection();
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Club
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set foundationYear
+     *
+     * @param integer $foundationYear
+     *
+     * @return Club
+     */
+    public function setFoundationYear($foundationYear)
+    {
+        $this->foundationYear = $foundationYear;
+
+        return $this;
+    }
+
+    /**
+     * Get foundationYear
+     *
+     * @return int
+     */
+    public function getFoundationYear()
+    {
+        return $this->foundationYear;
+    }
+
+    /**
+     * Set president
+     *
+     * @param string $president
+     *
+     * @return Club
+     */
+    public function setPresident($president)
+    {
+        $this->president = $president;
+
+        return $this;
+    }
+
+    /**
+     * Get president
+     *
+     * @return string
+     */
+    public function getPresident()
+    {
+        return $this->president;
+    }
+
+    /**
+     * Set manager
+     *
+     * @param string $manager
+     *
+     * @return Club
+     */
+    public function setManager($manager)
+    {
+        $this->manager = $manager;
+
+        return $this;
+    }
+
+    /**
+     * Get manager
+     *
+     * @return string
+     */
+    public function getManager()
+    {
+        return $this->manager;
+    }
+
+    /**
+     * Set pressOfficer
+     *
+     * @param string $pressOfficer
+     *
+     * @return Club
+     */
+    public function setPressOfficer($pressOfficer)
+    {
+        $this->pressOfficer = $pressOfficer;
+
+        return $this;
+    }
+
+    /**
+     * Get pressOfficer
+     *
+     * @return string
+     */
+    public function getPressOfficer()
+    {
+        return $this->pressOfficer;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Club
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Club
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set firstSeasons
+     *
+     * @param integer $firstSeasons
+     *
+     * @return Club
+     */
+    public function setFirstSeasons($firstSeasons)
+    {
+        $this->firstSeasons = $firstSeasons;
+
+        return $this;
+    }
+
+    /**
+     * Get firstSeasons
+     *
+     * @return int
+     */
+    public function getFirstSeasons()
+    {
+        return $this->firstSeasons;
+    }
+
+    /**
+     * Set secondSeasons
+     *
+     * @param integer $secondSeasons
+     *
+     * @return Club
+     */
+    public function setSecondSeasons($secondSeasons)
+    {
+        $this->secondSeasons = $secondSeasons;
+
+        return $this;
+    }
+
+    /**
+     * Get secondSeasons
+     *
+     * @return int
+     */
+    public function getSecondSeasons()
+    {
+        return $this->secondSeasons;
+    }
+
+    /**
+     * Set subscribers
+     *
+     * @param integer $subscribers
+     *
+     * @return Club
+     */
+    public function setSubscribers($subscribers)
+    {
+        $this->subscribers = $subscribers;
+
+        return $this;
+    }
+
+    /**
+     * Get subscribers
+     *
+     * @return int
+     */
+    public function getSubscribers()
+    {
+        return $this->subscribers;
+    }
+
+    /**
+     * Set brand
+     *
+     * @param string $brand
+     *
+     * @return Club
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return string
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * Set stadium
+     *
+     * @param string $stadium
+     *
+     * @return Club
+     */
+    public function setStadium($stadium)
+    {
+        $this->stadium = $stadium;
+
+        return $this;
+    }
+
+    /**
+     * Get stadium
+     *
+     * @return string
+     */
+    public function getStadium()
+    {
+        return $this->stadium;
+    }
+
+    /**
+     * Set stadiumDimensions
+     *
+     * @param integer $stadiumDimensions
+     *
+     * @return Club
+     */
+    public function setStadiumDimensions($stadiumDimensions)
+    {
+        $this->stadiumDimensions = $stadiumDimensions;
+
+        return $this;
+    }
+
+    /**
+     * Get stadiumDimensions
+     *
+     * @return int
+     */
+    public function getStadiumDimensions()
+    {
+        return $this->stadiumDimensions;
+    }
+
+    /**
+     * Set stadiumLength
+     *
+     * @param integer $stadiumLength
+     *
+     * @return Club
+     */
+    public function setStadiumLength($stadiumLength)
+    {
+        $this->stadiumLength = $stadiumLength;
+
+        return $this;
+    }
+
+    /**
+     * Get stadiumLength
+     *
+     * @return int
+     */
+    public function getStadiumLength()
+    {
+        return $this->stadiumLength;
+    }
+
+    /**
+     * Set capacity
+     *
+     * @param integer $capacity
+     *
+     * @return Club
+     */
+    public function setCapacity($capacity)
+    {
+        $this->capacity = $capacity;
+
+        return $this;
+    }
+
+    /**
+     * Get capacity
+     *
+     * @return int
+     */
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
+}
+
